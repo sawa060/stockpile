@@ -7,5 +7,46 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "engines": {
+    "npm": "please use yarn 🧚‍♀️"
+  },
+  "scripts": {
+    "prepare": "is-ci || husky install",
+    "postinstall": "manypkg check && yarn workspace front run chakratypegen ",
+    "lint": "yarn workspace front lint && yarn workspace back lint",
+    "test": "yarn workspace front test && yarn workspace back test"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "8.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-testing-library": "^5.0.1",
+    "fishery": "^2.1.0",
+    "husky": "^7.0.4",
+    "i18n-js": "^3.7.1",
+    "is-ci": "^3.0.1",
+    "jest": "^27.5.1",
+    "jest-watch-typeahead": "^1.0.0",
+    "js-cookie": "^3.0.1",
+    "lint-staged": "^12.1.5",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.1.3",
+    "tslib": "^2.3.1",
+    "type-fest": "^2.12.0",
+    "typescript": "4.6.4"
   }
 }
