@@ -1,0 +1,22 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"javascript.validate.enable": false,
+	"javascript.format.enable": true,
+	"eslint.format.enable": true,
+	"stylelint.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
+	},
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"eslint.packageManager": "yarn",
+	"eslint.workingDirectories": [
+		{
+			"pattern": "./packages/*/"
+		}
+	],
+	"files.watcherExclude": {
+		"./packages/openapi/**": true
+	}
+}
