@@ -15,12 +15,7 @@ export interface RouteMap {
   /**
    * ログイン
    */
-  login: Route<
-    '/login',
-    {
-      from?: string;
-    }
-  >;
+  login: Route<'/login'>;
   /**
    * home
    */

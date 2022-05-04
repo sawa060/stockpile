@@ -54,16 +54,12 @@ type PathFn<
       option?: Option,
     ) => PathFnReturnType<R>;
 
-export function getSubdomain() {
-  return window.location.hostname.split('.')[0];
-}
-
 export const Path: {[key in keyof RouteMap]: PathFn<RouteMap[key]>} = {
   root: () => '/',
   /**
    * ログイン
    */
-  login: ({from}) => `/login${getQueryParams({from})}`,
+  login: () => `/login`,
   /**
    * home
    */
