@@ -2,6 +2,7 @@ import {ChakraProvider, ColorModeScript, theme} from '@chakra-ui/react';
 import {css, Global} from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
 import type {AppProps} from 'next/app';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import {useState} from 'react';
 import {QueryClient, QueryClientProvider} from 'react-query';
@@ -19,6 +20,8 @@ const App = ({Component, pageProps}: AppProps) => {
       }),
   );
 
+  const SafeHydrate = dynamic(() => import('../components/safe_hydrate'), {ssr: false});
+
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
@@ -31,7 +34,9 @@ const App = ({Component, pageProps}: AppProps) => {
             ${emotionNormalize}
           `}
         />
-        <Component {...pageProps} />
+        <SafeHydrate>
+          <Component {...pageProps} />
+        </SafeHydrate>
       </ChakraProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
