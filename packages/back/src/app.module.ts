@@ -4,10 +4,20 @@ import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemsModule } from './items/items.module';
-import * as ormConfig from '../ormconfig';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(ormConfig), ItemsModule],
+  imports: [
+    ItemsModule,
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'user',
+      password: 'password',
+      database: 'develop',
+      autoLoadEntities: true,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { CreateItemDto } from './dto/create-item.dto';
 import { ItemStatus } from './item.enum';
 import { Item } from './item.model';
 import { ItemsService } from './items.service';
@@ -18,20 +19,8 @@ export class ItemsController {
   }
 
   @Post()
-  create(
-    @Body('id') id: number,
-    @Body('name') name: string,
-    @Body('kind') kind: string,
-    @Body('quantity') quantity: number,
-  ): Item {
-    const item: Item = {
-      id,
-      name,
-      status: ItemStatus.USING,
-      quantity,
-      kind,
-    };
-    return this.itemsService.create(item);
+  create(@Body() createItemDto: CreateItemDto): Item {
+    return this.itemsService.create(createItemDto);
   }
 
   @Patch()

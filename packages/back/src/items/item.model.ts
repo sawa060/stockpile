@@ -1,7 +1,7 @@
 import { ItemStatus } from './item.enum';
 
 export interface Item {
-  id: number;
+  id?: number;
   name: string;
   status: ItemStatus;
   kind?: string;

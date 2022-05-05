@@ -1,15 +1,15 @@
 version: '3.8'
 services:
-  api:
-    container_name: api
-    build: .
-    tty: true
-    ports:
-      - '3003:3003'
-    volumes:
-      - type: bind
-        source: .
-        target: /api
+  # api:
+  #   container_name: api
+  #   build: .
+  #   tty: true
+  #   ports:
+  #     - '3000:3000'
+  #   volumes:
+  #     - type: bind
+  #       source: .
+  #       target: /api
   mysql:
     image: mysql/mysql-server:5.7
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
