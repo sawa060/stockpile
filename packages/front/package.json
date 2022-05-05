@@ -10,6 +10,7 @@
     "eslint:fix": "eslint . --ext .js,.ts,.tsx --fix && prettier \"*.{ts,tsx,js}\" --write",
     "lint:stylelint": "stylelint \"src/js/**/*.{ts,tsx}\"",
     "lint": "yarn run eslint && yarn run stylelint",
+    "chakratypegen": "chakra-cli tokens src/js/styles/theme/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -30,7 +31,6 @@
     "react-spinners": "^0.11.0"
   },
   "devDependencies": {
-    "@types/node": "17.0.31",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
     "stylelint": "^14.2.0",
