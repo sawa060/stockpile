@@ -15,15 +15,15 @@ export class Item {
   @Column()
   kind: string;
 
-  @Column()
+  @Column({ nullable: true })
   note: string;
 
   @Column()
   quantity: number;
 
   @Column()
-  createdAt: string;
+  createdAt?: string;
 
   @Column()
-  updatedAt: string;
+  updatedAt?: string;
 }
