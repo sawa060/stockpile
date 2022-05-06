@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  CreateDateColumn,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { ItemStatus } from '../items/item.enum';
 
 @Entity()
@@ -21,9 +27,9 @@ export class Item {
   @Column()
   quantity: number;
 
-  @Column()
-  createdAt?: string;
+  @CreateDateColumn()
+  readonly createdAt: Date;
 
-  @Column()
-  updatedAt?: string;
+  @UpdateDateColumn()
+  readonly updatedAt: Date;
 }

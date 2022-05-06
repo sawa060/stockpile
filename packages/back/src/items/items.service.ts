@@ -3,17 +3,18 @@ import { CreateItemDto } from './dto/create-item.dto';
 
 import { Item } from '../entities/item.entity';
 import { ItemRepository } from './item.repository';
+import { UpdateItemDto } from './dto/update-item.dto';
 
 @Injectable()
 export class ItemsService {
   constructor(private readonly itemRepository: ItemRepository) {}
   private items: Item[] = [];
-  findAll(): Item[] {
-    return this.items;
+  async findAll() {
+    return await this.itemRepository.find();
   }
 
-  findById(id: number): Item {
-    const found = this.items.find((item) => item.id === id);
+  async findById(id: number) {
+    const found = await this.itemRepository.findOne(id);
     if (!found) {
       throw new NotFoundException();
     }
@@ -24,19 +25,12 @@ export class ItemsService {
     return await this.itemRepository.createItem(createItemDto);
   }
 
-  update(variables: Item): Item {
-    const item = this.findById(variables.id);
-
-    item.name = variables.name;
-    item.kind = variables.kind;
-    item.note = variables.note;
-    item.quantity = variables.quantity;
-    item.status = variables.status;
-
-    return item;
+  async update(id: number, updateItemDto: UpdateItemDto) {
+    await this.itemRepository.update(id, updateItemDto);
+    return await this.itemRepository.findOne(id);
   }
 
-  delete(id: number): void {
-    this.items = this.items.filter((item) => item.id !== id);
+  async delete(id: number) {
+    return await this.itemRepository.delete({ id });
   }
 }
