@@ -9,6 +9,7 @@ export class CredentialsDto {
   @IsNotEmpty()
   email: string;
 
+  @ApiProperty()
   @IsString()
   @MinLength(8)
   @MaxLength(32)
