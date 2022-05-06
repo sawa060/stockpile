@@ -6,10 +6,10 @@ module.exports = {
   password: 'password',
   database: 'develop',
   autoLoadEntities: true,
-  entities: ['dist/src/**/*.entity.js'],
-  migrations: ['dist/migration/**/*.migration.js'],
+  entities: ['dist/entities/*.entity.js'],
+  migrations: ['dist/migrations/*.js'],
   cli: {
-    entitiesDir: '../entities',
-    migrationsDir: '../migrations',
+    entitiesDir: 'src/entities',
+    migrationsDir: 'src/migrations',
   },
 };
