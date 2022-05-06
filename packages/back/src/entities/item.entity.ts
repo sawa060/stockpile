@@ -10,7 +10,7 @@ import { ItemStatus } from '../items/item.enum';
 @Entity()
 export class Item {
   @PrimaryGeneratedColumn()
-  id: number;
+  readonly id: number;
 
   @Column()
   name: string;
